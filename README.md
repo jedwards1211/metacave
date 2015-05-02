@@ -239,11 +239,10 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
                                             a row of measurements blank in survey notes)
                                             Default unit: "distUnit"
 
-              "dist": "auto"                only allowed if the from and to
-                                            station are fixed and no azimuths or
-                                            inclinations are given; tells the
-                                            program to draw passage connecting
-                                            the stations anyway
+              "dist": "auto"                only allowed if the from and to station are 
+                                            fixed and no azimuths or inclinations are 
+                                            given; tells the program to draw passage 
+                                            connecting the stations anyway
 
               "fsAzm": 204.5                Optional angle - the frontsight azimuth
                                             Default unit: "fsAzmUnit", then "angleUnit"
@@ -270,6 +269,52 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
       ...
     },
     ...
+  }
+}
+```
+
+### Splay shots
+
+If the to station of a shot is null, or has no "station" property, the shot is considered
+a splay shot.
+
+Examples:
+
+```
+  "survey": [
+    {"station": "A1"},
+    {"dist": 55, "fsAzm": 23, "fsInc": 80}, This is a splay shot from A1
+    {},                                     station placeholder
+    {},                                     shot placeholder
+    {"station": "A1"},
+    {"dist": 45, "fsAzm": 32, "fsInc": 75}, Another splay shot from A1
+    null,                                   station placeholder
+    null,                                   shot placeholder
+    {"station": "A2"},
+    {"dist": 32, "fsAzm": 64, "fsInc": 32}, A splay shot from A2
+    {"hello": "world},                      Because this station has no "station" property
+                                            it's equivalent to null
+  ]
+```
+
+Example JavaScript interpreting logic:
+
+```text/javascript
+for (var i = 0; i < survey.length - 2; i += 2) {
+  var from = survey[i],
+      shot = survey[i + 1],
+      to   = survey[i + 2];
+
+  if (shot && (shot.dist || shot.dist === 0)) {
+    if (!from || !from.station) {
+      throw new Error("missing from station");
+    }
+    if (to && to.station) {
+      // handle as splay shot
+    }
+    else {
+      // handle as regular shot
+    }
   }
 }
 ```
