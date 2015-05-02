@@ -5,7 +5,8 @@
 
 Metacave is a JSON cave survey data format.  That means it's:
 * Way easier to parse, interpret, or output than any other formats out there
-* More human-readable and futureproof
+* Primarily designed for programs to work with, but not that hard for humans
+  to read and edit
 * Extensible!
   * You can add all the metadata you want to any shot, station, trip, or cave,
     and give it a nice structure
@@ -293,4 +294,59 @@ by entering an array like this:
 
   "lrud": [4, 5, 1, [5, "in"]]              left, right, and up are in default units,
                                             down is 5 inches
+```
+
+### Embedding Metadata
+
+You can add any additional properties you want to JSON objects (the things enclosed in `{ }`).
+
+Programs can ignore additional properties if they want, or visualize them somehow, or allow you
+to search for shots by metadata, etc.
+
+At the extreme end, programs can embed highly program-specific data - for example Philip Schuhardt
+and I are working on a way of embedding Cavewhere's scanned note warping data.
+
+The beauty of JSON's flexibility is that other programs will still be able to read all of the core
+survey data without conversion, even if they don't know how to interpret another program's specific data.
+
+If two programs embed data that has almost the same format but not quite, they might confuse each other -
+but this can be solved by making an import feature that only interprets the core survey data, and then
+making the routine that interprets the program-specific data build off of that.
+
+For example, in Fisher Ridge all trips are assigned a number, so we could note that like so:
+
+```
+  "trips": [
+    {
+      "number": 1,
+      ...
+    },
+    {
+      "number": 2,
+      ...
+    },
+    ...
+  ]
+```
+
+Or say you wanted to note water depth at each station:
+
+```
+  "survey": [
+    {
+      "station": "W1",
+      "waterDepth": 2,
+      ...
+    },
+    {
+      "dist": 5,
+      ...
+    },
+    {
+      "station": W2",
+      "waterDepth": 5,
+      ...
+    },
+    ...
+  ]
 ```
