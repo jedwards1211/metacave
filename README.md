@@ -3,7 +3,7 @@
 
 (In progress!)
 
-Metacave is a JSON cave survey data format.  That means it's:
+Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's:
 * Way easier to parse, interpret, or output than any other formats out there
 * Primarily designed for programs to work with, but not that hard for humans
   to read and edit
