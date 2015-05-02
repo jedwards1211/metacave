@@ -273,13 +273,6 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
 }
 ```
 
-### Can I use [YAML](http://www.yaml.org/)?
-
-Basic YAML is great for human readability, but I think they got a bit carried away with supporting arbitrary
-types and data structures.
-
-So free to make your program support YAML, as long as you don't use any YAML features that can't be converted to JSON.
-
 ### Individual unit overrides
 
 Anywhere you put a quantity with default units, you can instead override the default unit
@@ -302,6 +295,13 @@ by entering an array like this:
   "lrud": [4, 5, 1, [5, "in"]]              left, right, and up are in default units,
                                             down is 5 inches
 ```
+
+### Can I use [YAML](http://www.yaml.org/)?
+
+Basic YAML is great for human readability, but I think they got a bit carried away with supporting arbitrary
+types and data structures.
+
+So free to make your program support YAML, as long as you don't use any YAML features that can't be converted to JSON.
 
 ### Embedding Metadata
 
