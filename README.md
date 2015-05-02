@@ -277,6 +277,7 @@ Metacave is a JSON cave survey data format.  That means it's:
 Anywhere you put a quantity with default units, you can instead override the default unit
 by entering an array like this:
 
+```
   "dist": [4, "m"]                          distance is 4 meters even if "distUnit": "ft"
 
   "dist": [5, "ft", 7, "in"]                distance is 5 feet 7 inches
@@ -292,3 +293,4 @@ by entering an array like this:
 
   "lrud": [4, 5, 1, [5, "in"]]              left, right, and up are in default units,
                                             down is 5 inches
+```
