@@ -202,7 +202,7 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
               "cave": "Mammoth Cave",       Optional - specifies this station is in
                                             a different cave, for connections.  Stations
                                             in different caves can have the same name, but
-                                            will be considered distinct.
+                                            will be considered distinct
               
               "isEntrance": true,           Optional - true if the station is an entrance,
                                             false (or omitted) if not
@@ -213,7 +213,7 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
                                             Default unit: "distUnit"
               
               "lrudAzm": 3,                 Optional angle - the azimuth that is forward
-                                            relative to the LRUDs.
+                                            relative to the LRUDs
                                             If omitted, the default is bisecting the
                                             previous and next shot azimuths
                                             (unless station is a dead end, then 
@@ -222,7 +222,8 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
 
               "nsew": [3, 2, 4, 6]          Optional distances - the NSEWs at this
                                             station. They will also be associated with
-                                            the surrounding shots.
+                                            the surrounding shots
+                                            Default unit: "distUnit"
             },
             {                               This is a shot from the previous station to
                                             the following station
@@ -232,7 +233,7 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
                                             measurements blank in survey notes)
 
               "dist": 15.3                  Optional distance - the distance between the 
-                                            surrounding stations.
+                                            surrounding stations
                                             If omitted, means there was no shot between 
                                             the surrounding stations (just like leaving
                                             a row of measurements blank in survey notes)
