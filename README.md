@@ -14,6 +14,7 @@ Metacave is a JSON cave survey data format.  That means it's:
 * Easy to store in MongoDB
 
 ## Specification
+(go to [README.md source](README.md) to avoid horizontal scrolling)
 
 ```
 {
