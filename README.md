@@ -207,8 +207,15 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
               "isEntrance": true,           Optional - true if the station is an entrance,
                                             false (or omitted) if not
 
-              "isAboveGround": true,        Optional - true if the station is above ground,
-                                            false (or omitted) if not
+              "isAboveGround": true,        Optional - true if the station is above 
+                                            ground, false (or omitted) if not
+
+              "depth": 4.25,                Optional distance - depth underwater for dive 
+                                            surveys (must be positive)
+                                            If two adjacent stations have depths,
+                                            inclinations can be omitted from the shot
+                                            connecting them
+                                            Default unit: "distUnit"
               
               "lrud": [5, 4, 0, 2],         Optional distances - the LRUDs at this 
                                             station.  They will also be associated with
@@ -242,16 +249,23 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
                                             a row of measurements blank in survey notes)
                                             Default unit: "distUnit"
 
-              "dist": "auto"                only allowed if the from and to station are 
+              "dist": "auto"                Only allowed if the from and to station are 
                                             fixed and no azimuths or inclinations are 
                                             given; tells the program to draw passage 
                                             connecting the stations anyway
+
+                                            At least one of "fsAzm" and "bsAzm" is
+                                            required unless the shot is vertical
 
               "fsAzm": 204.5                Optional angle - the frontsight azimuth
                                             Default unit: "fsAzmUnit", then "angleUnit"
 
               "bsAzm": 22.5                 Optional angle - the backsight azimuth
                                             Default unit: "bsAzmUnit", then "angleUnit"
+
+                                            At least one of "fsInc" and "bsInc" is
+                                            required unless the from and to stations
+                                            have "depth"s
 
               "fsInc": -5                   Optional angle - the frontsight inclination
                                             Default unit: "fsIncUnit", then "angleUnit"
