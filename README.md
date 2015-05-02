@@ -13,6 +13,8 @@ Metacave is a JSON cave survey data format.  That means it's:
     program's ability to load the base survey data
 * Easy to store in MongoDB
 
+## Specification
+
 ```
 {
   "caves": {                                Required - this is where you define all            
