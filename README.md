@@ -82,7 +82,6 @@ Metacave is a JSON cave survey data format.  That means it's:
                                             other than WGS84
 
           "stations": {
-
             "A1": {                         This is the fixed position for station A1
 
                                             Either a "north"/"east" pair or a "lat"/"long"
@@ -112,24 +111,18 @@ Metacave is a JSON cave survey data format.  That means it's:
                                             negative: below sea level
                                             Default unit: "distUnit"
             },
-
             "Q5": {                         This is the fixed position for station Q5
               ...
             },
-
             ...
           }
-
         },
-
         {                                   (Another fixed station group)
           ...
         },
-
         ...
       ],
       "trips": [
-      
         {                                   This is the start of a trip
 
           "name": "Tricky Traverse",        Optional - a name for this trip
@@ -194,9 +187,7 @@ Metacave is a JSON cave survey data format.  That means it's:
           "incBsCorrection": 0,             Optional angle - correction added to the
                                             backsight inclinations
                                             Default unit: "incFsUnit", then "angleUnit"
-          
-          "survey": [
-
+           "survey": [
             {                               This is a station.  The survey must begin and
                                             end with stations and have a shot in between
                                             each pair of stations
@@ -232,7 +223,6 @@ Metacave is a JSON cave survey data format.  That means it's:
                                             station. They will also be associated with
                                             the surrounding shots.
             },
-
             {                               This is a shot from the previous station to
                                             the following station
                                             Enter null where a shot should be to indicate
@@ -266,16 +256,18 @@ Metacave is a JSON cave survey data format.  That means it's:
                                             backsight inclination
                                             Default unit: "bsIncUnit", then "angleUnit"
             }, 
-
             ...
-
             {                               The survey must end with a station
               "station": "END"
             }
           ]
         }
       ]
-    } 
+    },
+    "Mammoth Cave": {                       Everything inside here is for Mammoth Cave
+      ...
+    },
+    ...
   }
 }
 ```
