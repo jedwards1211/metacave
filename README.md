@@ -4,7 +4,7 @@
 (In progress!)
 
 Metacave is a JSON cave survey data format.  That means it's:
-* Way easier to parse and interpret than any other formats out there
+* Way easier to parse, interpret, or output than any other formats out there
 * More human-readable and futureproof
 * Extensible!
   * You can add all the metadata you want to any shot, station, trip, or cave,
