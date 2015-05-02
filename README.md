@@ -137,8 +137,8 @@ Metacave is a JSON cave survey data format.  That means it's:
 
                                             (Note that you can also put unit overrides in
                                             "lrud" and "nsew")
-                                            "in": inches are only allowed in array
-                                                  overrides
+                                            "in": inches are only allowed in individual
+                                                  measurement overrides
             },
 
             {                               This is a shot from the previous station to
