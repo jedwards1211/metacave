@@ -14,6 +14,13 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
     program's ability to load the base survey data
 * Easy to store in MongoDB
 
+Metacave will soon become the native format (with extensions) for 
+[Breakout](http://helloandy.xyz/breakout) and probably also [Cavewhere](https://github.com/Cavewhere/cavewhere).
+
+In addition, Andy (author of Breakout) has import/export for Walls `.srv` files nearly
+finished, and will have import/export for Compass `.dat` files soon as well (a much easier
+job than parsing `.srv` files!
+
 ## Specification
 (go to [README.md source](README.md) to avoid horizontal scrolling)
 
