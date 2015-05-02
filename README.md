@@ -55,7 +55,10 @@ Metacave is a JSON cave survey data format.  That means it's:
                                             If you connect to another cave, don't worry -
                                             we'll cover how to handle that below
 
-      "fixedStations": [
+      "fixedStations": [                    This is where you define fixed station
+                                            locations.  You can fix all stations in the
+                                            cave if you want to import/export calculated
+                                            loop closures from another program
 
         {                                   This is a fixed station group, whose only
                                             purpose is to specify the default units, UTM 
