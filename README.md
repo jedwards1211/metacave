@@ -206,6 +206,9 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
               
               "isEntrance": true,           Optional - true if the station is an entrance,
                                             false (or omitted) if not
+
+              "isAboveGround": true,        Optional - true if the station is above ground,
+                                            false (or omitted) if not
               
               "lrud": [5, 4, 0, 2],         Optional distances - the LRUDs at this 
                                             station.  They will also be associated with
@@ -256,6 +259,10 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
               "bsInc": 6                    Optional angle or "up" or "down" - the
                                             backsight inclination
                                             Default unit: "bsIncUnit", then "angleUnit"
+
+              "excludeDist": true           Optional - true if you want to exclude this
+                                            shot's dist from the total length of the cave,
+                                            false (or omitted) otherwise
             }, 
             ...
             {                               The survey must end with a station
