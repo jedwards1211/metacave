@@ -298,10 +298,30 @@ by entering an array like this:
 
 ### Can I use [YAML](http://www.yaml.org/)?
 
-Basic YAML is great for human readability, but I think they got a bit carried away with supporting arbitrary
-types and data structures.
+Great question!  Metacave would certainly look nicer to non-programmers if it were in YAML, right?
 
-So free to make your program support YAML, as long as you don't use any YAML features that can't be converted to JSON.
+Plus, associating metadata like passage and area names with arbitrary groups of stations can be done more efficiently using YAML references.
+
+**So feel free to make your program support YAML!**
+
+#### BUT
+
+* Please don't use any YAML features that can't be converted to JSON
+* Please for the love of god don't use it like this:
+```
+%YAML 1.2
+---
+!!map {
+  ? !!str "sequence"
+  : !!seq [ !!str "one", !!str "two" ],
+  ? !!str "mapping"
+  : !!map {
+    ? !!str "sky" : !!str "blue",
+    ? !!str "sea" : !!str "green",
+  },
+}
+```
+The authors of YAML really got carried away, didn't they?
 
 ### Embedding Metadata
 
