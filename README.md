@@ -1,7 +1,7 @@
 # metacave
 ## One cave survey data format to rule them all
 
-(In progress!)
+**(In progress!)**
 
 Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's:
 * Way easier to parse, interpret, or output than any other formats out there
