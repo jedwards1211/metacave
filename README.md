@@ -299,7 +299,7 @@ Examples:
 
 Example JavaScript interpreting logic:
 
-```text/javascript
+```javascript
 for (var i = 0; i < survey.length - 2; i += 2) {
   var from = survey[i],
       shot = survey[i + 1],
