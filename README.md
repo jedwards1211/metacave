@@ -69,55 +69,34 @@ job than parsing `.srv` files!
                                             loop closures from another program
 
         {                                   This is a fixed station group, whose only
-                                            purpose is to specify the default units, UTM 
-                                            zone and datum shared by all stations in it
+                                            purpose is to specify the default units
 
           "distUnit": "m",                  Required - the default unit for all distances
                                             in this fixed station group
 
-          "angleUnit": "deg",               Required - the default unit for all lat/lon
-                                            angles in this fixed station group
-
-          "utmZone": "16N"                  Optional - the UTM zone for all north/east
-                                            locations
-                                            Required if both north/east locations and
-                                            lat/lon locations are used
-                                            Only N/S are allowed, no MGRS letters
-
-          "datum": "WGS84"                  Required - the reference ellipsoid for
-                                            locations 
-                                            Programs are not required to support anything
-                                            other than WGS84
-
           "stations": {
             "A1": {                         This is the fixed position for station A1
 
-                                            Either a "north"/"east" pair or a "lat"/"long"
-                                            pair must be defined
-                                            It is an error if both pairs are defined
+                                            "lat"/"long" pair must be defined using the WGS84
+                                            projection, specifically EPSG:4326.
 
-              "north": 4645328,             Optional distance - northing from the UTM
-                                            zone origin
-                                            Default unit: "distUnit"
-
-              "east": 502134,               Optional distance - easting from the UTM
-                                            zone origin
-                                            Default unit: "distUnit"
-
-              "lat": 34                     Optional angle - latitude
+              "lat": 34.2342,               Required angle - latitude
                                             positive: north of equator
                                             negative: south of equator
-                                            Default unit: "angleUnit"
+                                            units: decimal degrees
 
-              "long": -56                   Optional angle - longitude
+              "long": -56.2313,             Optional angle - longitude
                                             positive: east of prime meridian
                                             negative: west of prime meridian
-                                            Default unit: "angleUnit"
+                                            units: decimal degrees
   
               "elev": 345,                  Required distance - elevation
                                             positive: above sea level
                                             negative: below sea level
                                             Default unit: "distUnit"
+                                            Units can be overridden using [value, "unit"] convension
+                                            for example [345, "ft"]
+
             },
             "Q5": {                         This is the fixed position for station Q5
               ...
