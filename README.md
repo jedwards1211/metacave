@@ -140,6 +140,8 @@ job than parsing `.srv` files!
           
           "surveyors": {                    Optional - members of the survey team
             "Dan Crowl": {roles:"sketch"},
+            "Chip Hopper": {roles:"frontsights"},
+            "Keith Ortiz": {roles:"backsights"},
             "Peter Quick":
               {
                 roles:                      You can specify multiple roles in an array or scalar
