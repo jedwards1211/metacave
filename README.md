@@ -139,13 +139,15 @@ job than parsing `.srv` files!
                                             format
           
           "surveyors": {                    Optional - members of the survey team
-            "Dan Crowl":   "sketch", 
-            "Keith Ortiz": "frontsights", 
-            "Chip Hopper": "backsights", 
-            "Peter Quick": [
-              "lead tape",                  You can specify multiple roles in an array
-              "photos"                        
-            ],
+            "Dan Crowl": {roles:"sketch"},
+            "Peter Quick":
+              {
+                roles:                      You can specify multiple roles in an array or scalar
+                  [
+                    "lead tape",
+                    "photos"
+                  ],
+              }
             "Larry Bean": null              Use null if you don't want to specify a role
           }
 
