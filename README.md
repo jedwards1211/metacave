@@ -346,7 +346,7 @@ for (var i = 0; i < survey.length - 2; i += 2) {
 
 ### Individual unit overrides
 
-Anywhere you put a quantity with default units, you can instead override the default unit
+Anywhere (_anywhere_!) you put a quantity with default units, you can instead override the default unit
 by entering an array like this:
 
 ```
