@@ -73,6 +73,16 @@ job than parsing `.srv` files!
 
           "distUnit": "m",                  Required - the default unit for all distances
                                             in this fixed station group
+                                            
+          "ellipsoid": "WGS84",             Required - must be WGS84, but this field is
+                                            required for the sake of making the data
+                                            unambiguous to a reader who hasn't read this
+                                            spec
+          
+          "datum": "WGS84",                 Required - must be WGS84, but this field is
+                                            required for the sake of making the data
+                                            unambiguous to a reader who hasn't read this
+                                            spec
 
           "stations": {
             "A1": {                         This is the fixed position for station A1
