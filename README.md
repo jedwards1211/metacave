@@ -158,6 +158,9 @@ job than parsing `.srv` files!
 
           "backsightsCorrected": false,     Required - true if backsights are corrected,
                                             false if not
+
+          "declination": 0.0,               Optional - the angle (in degrees) between
+                                            magnetic north and and true north
           
           "azmFsUnit": "deg",               Optional - overrides default unit for
                                             frontsight azimuths
