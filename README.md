@@ -156,7 +156,10 @@ job than parsing `.srv` files!
                                             "grad": gradians
                                             "mil" : mils (1/6400 of a circle)
 
-          "backsightsCorrected": false,     Required - true if backsights are corrected,
+          "azmBacksightsCorrected": false,  Required - true if azimuth backsights are corrected,
+                                            false if not
+
+          "incBacksightsCorrected": false,  Required - true if inclinations backsights are corrected,
                                             false if not
 
           "declination": 0.0,               Optional - the angle (in degrees) between
