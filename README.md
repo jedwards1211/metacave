@@ -252,41 +252,51 @@ job than parsing `.srv` files!
                                             stations (just like leaving a row of
                                             measurements blank in survey notes)
 
-              "dist": 15.3                  Optional distance - the distance between the 
-                                            surrounding stations
-                                            If omitted, means there was no shot between 
-                                            the surrounding stations (just like leaving
-                                            a row of measurements blank in survey notes)
-                                            Default unit: "distUnit"
-
-              "dist": "auto"                Only allowed if the from and to station are 
-                                            fixed and no azimuths or inclinations are 
-                                            given; tells the program to draw passage 
-                                            connecting the stations anyway
-
-                                            At least one of "fsAzm" and "bsAzm" is
-                                            required unless the shot is vertical
-
-              "fsAzm": 204.5                Optional angle - the frontsight azimuth
-                                            Default unit: "fsAzmUnit", then "angleUnit"
-
-              "bsAzm": 22.5                 Optional angle - the backsight azimuth
-                                            Default unit: "bsAzmUnit", then "angleUnit"
-
-                                            At least one of "fsInc" and "bsInc" is
-                                            required unless the from and to stations
-                                            have "depth"s
-
-              "fsInc": -5                   Optional angle - the frontsight inclination
-                                            Default unit: "fsIncUnit", then "angleUnit"
-
-              "bsInc": 6                    Optional angle or "up" or "down" - the
-                                            backsight inclination
-                                            Default unit: "bsIncUnit", then "angleUnit"
-
               "excludeDist": true           Optional - true if you want to exclude this
                                             shot's dist from the total length of the cave,
                                             false (or omitted) otherwise
+
+              "dist": "auto"                Only allowed if the from and to station are
+                                            fixed and no azimuths or inclinations are
+                                            given; tells the program to draw passage
+                                            connecting the stations anyway
+
+              "measurements": [             Optional - Array of measurements between two stations.
+                                            If this property is null, empty, or doesn't exist
+                                            there's no measurements between two stations.
+
+                    {
+
+                    "dir": "frontsight"     Optional enumeration - The direction of the shot's
+                                            measurement. There are two supported directions:
+                                            "frontsight" and "backsight". A frontsight means the
+                                            measurements were collected from current station
+                                            to the next station. A backsight means the measurements
+                                            were collected from the next station to the current
+                                            station. If this doesn't exist, "dist" = "auto"
+                                            Default value: "frontsight"
+
+
+                    "dist": 15.3            optional distance - the distance between two stations.
+                                            If omitted, means the data is missing
+                                            Default unit: "distUnit"
+
+                    "azm": 204.5            Optional angle - the azimuth
+                                            If omitted, means the data is missing
+                                            Default frontsight unit: "fsAzmUnit", then "angleUnit"
+                                            Default backsight unit: "bsAzmUnit", then "angleUnit"
+
+                    "inc": -5               Optional angle - the inclination
+                                            If omitted, means the data is missing or using station
+                                            depths (dive data has no inclination).
+                                            Default frontsight unit: "fsIncUnit", then "angleUnit"
+                                            Default backsight unit: "bsIncUnit", then "angleUnit"
+
+                    },
+
+                    { ... }                 Another measurement between from station to the to station
+
+               ]
             }, 
             ...
             {                               The survey must end with a station
