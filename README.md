@@ -244,6 +244,52 @@ job than parsing `.srv` files!
                                             station. They will also be associated with
                                             the surrounding shots
                                             Default unit: "distUnit"
+
+              splays: [                     Optional - Array of splay shots from the station. Each
+                                            object in the array represents a splay shot from the
+                                            station If this property is null, empty, or doesn't
+                                            exist there's no splay shots from this station.
+
+                    {
+
+                    "dir": "fs"             Optional enumeration - The direction of the splay's
+                                            measurement. There are two supported directions:
+                                            "fs" and "bs", which are abbreviations for frontsight
+                                            and backsight respectivly. A frontsight are measurements
+                                            where the data was collected from current station
+                                            to the splay station. A backsight are where the data was
+                                            collected from the splay station to the current station.
+                                            Default value: "fs"
+
+
+                    "dist": 15.3            optional distance - the distance between the current
+                                            station and the splay station.
+                                            If omitted, means the data is missing. This splay
+                                            shot distance is ignored from the total surveyed
+                                            distance.
+                                            Default unit: "distUnit"
+
+                    "azm": 204.5            Optional angle - the azimuth of the splay shot
+                                            If omitted, means the data is missing
+                                            Default frontsight unit: "fsAzmUnit", then "angleUnit"
+                                            Default backsight unit: "bsAzmUnit", then "angleUnit"
+
+                    "inc": -5               Optional angle - the inclination of the splay
+                                            If omitted, means the data is missing or using station
+                                            depths (dive data has no inclination).
+                                            Default frontsight unit: "fsIncUnit", then "angleUnit"
+                                            Default backsight unit: "bsIncUnit", then "angleUnit"
+
+                    "splayDepth": 4.25,     Optional distance - depth underwater for dive at the
+                                            splay station (must be positive)
+                                            If current station has "depth" property and this
+                                            property exist inclinations can be omitted from the
+                                            splay shot
+                                            Default unit: "distUnit"
+
+                    },
+                    { ... }                 Another splay shot from the station
+               ]
             },
             {                               This is a shot from the previous station to
                                             the following station
@@ -267,14 +313,15 @@ job than parsing `.srv` files!
 
                     {
 
-                    "dir": "frontsight"     Optional enumeration - The direction of the shot's
+
+                    "dir": "fs"             Optional enumeration - The direction of the shot's
                                             measurement. There are two supported directions:
-                                            "frontsight" and "backsight". A frontsight means the
-                                            measurements were collected from current station
-                                            to the next station. A backsight means the measurements
-                                            were collected from the next station to the current
-                                            station. If this doesn't exist, "dist" = "auto"
-                                            Default value: "frontsight"
+                                            "fs" and "bs", which are abbreviations for frontsight
+                                            and backsight respectivly. A frontsight are measurements
+                                            where the data was collected from current station
+                                            to the next station. A backsight are where the data was
+                                            collected from the next station to the current station.
+                                            Default value: "fs"
 
 
                     "dist": 15.3            optional distance - the distance between two stations.
@@ -312,30 +359,6 @@ job than parsing `.srv` files!
     ...
   }
 }
-```
-
-### Splay shots
-
-If the to station of a shot is null, or has no "station" property, the shot is considered
-a splay shot.
-
-Examples:
-
-```
-  "survey": [
-    {"station": "A1"},
-    {"dist": 55, "fsAzm": 23, "fsInc": 80}, This is a splay shot from A1
-    {},                                     station placeholder
-    {},                                     shot placeholder
-    {"station": "A1"},
-    {"dist": 45, "fsAzm": 32, "fsInc": 75}, Another splay shot from A1
-    null,                                   station placeholder
-    null,                                   shot placeholder
-    {"station": "A2"},
-    {"dist": 32, "fsAzm": 64, "fsInc": 32}, A splay shot from A2
-    {"hello": "world},                      Because this station has no "station" property
-                                            it's equivalent to null
-  ]
 ```
 
 Example JavaScript interpreting logic:
