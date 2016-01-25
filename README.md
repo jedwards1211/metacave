@@ -198,7 +198,7 @@ job than parsing `.srv` files!
           "incBsCorrection": 0,             Optional angle - correction added to the
                                             backsight inclinations
                                             Default unit: "incFsUnit", then "angleUnit"
-           "survey": [
+          "survey": [
             {                               This is a station.  The survey must begin and
                                             end with stations and have a shot in between
                                             each pair of stations
@@ -240,7 +240,7 @@ job than parsing `.srv` files!
                                             perpendicular to shot)
                                             Default unit: "angleUnit"
 
-              "nsew": [3, 2, 4, 6]          Optional distances - the NSEWs at this
+              "nsew": [3, 2, 4, 6],         Optional distances - the NSEWs at this
                                             station. They will also be associated with
                                             the surrounding shots
                                             Default unit: "distUnit"
@@ -250,9 +250,9 @@ job than parsing `.srv` files!
                                             station If this property is null, empty, or doesn't
                                             exist there's no splay shots from this station.
 
-                    {
+                {
 
-                    "dir": "fs"             Optional enumeration - The direction of the splay's
+                  "dir": "fs",             Optional enumeration - The direction of the splay's
                                             measurement. There are two supported directions:
                                             "fs" and "bs", which are abbreviations for frontsight
                                             and backsight respectivly. A frontsight are measurements
@@ -262,34 +262,34 @@ job than parsing `.srv` files!
                                             Default value: "fs"
 
 
-                    "dist": 15.3            optional distance - the distance between the current
+                  "dist": 15.3,             optional distance - the distance between the current
                                             station and the splay station.
                                             If omitted, means the data is missing. This splay
                                             shot distance is ignored from the total surveyed
                                             distance.
                                             Default unit: "distUnit"
 
-                    "azm": 204.5            Optional angle - the azimuth of the splay shot
+                  "azm": 204.5,             Optional angle - the azimuth of the splay shot
                                             If omitted, means the data is missing
                                             Default frontsight unit: "fsAzmUnit", then "angleUnit"
                                             Default backsight unit: "bsAzmUnit", then "angleUnit"
 
-                    "inc": -5               Optional angle - the inclination of the splay
+                  "inc": -5,               Optional angle - the inclination of the splay
                                             If omitted, means the data is missing or using station
                                             depths (dive data has no inclination).
                                             Default frontsight unit: "fsIncUnit", then "angleUnit"
                                             Default backsight unit: "bsIncUnit", then "angleUnit"
 
-                    "splayDepth": 4.25,     Optional distance - depth underwater for dive at the
+                  "splayDepth": 4.25,       Optional distance - depth underwater for dive at the
                                             splay station (must be positive)
                                             If current station has "depth" property and this
                                             property exist inclinations can be omitted from the
                                             splay shot
                                             Default unit: "distUnit"
 
-                    },
-                    { ... }                 Another splay shot from the station
-               ]
+                },
+                { ... }                     Another splay shot from the station
+              ]
             },
             {                               This is a shot from the previous station to
                                             the following station
@@ -298,11 +298,11 @@ job than parsing `.srv` files!
                                             stations (just like leaving a row of
                                             measurements blank in survey notes)
 
-              "excludeDist": true           Optional - true if you want to exclude this
+              "excludeDist": true,          Optional - true if you want to exclude this
                                             shot's dist from the total length of the cave,
                                             false (or omitted) otherwise
 
-              "dist": "auto"                Only allowed if the from and to station are
+              "dist": "auto",               Only allowed if the from and to station are
                                             fixed and no azimuths or inclinations are
                                             given; tells the program to draw passage
                                             connecting the stations anyway
@@ -311,10 +311,10 @@ job than parsing `.srv` files!
                                             If this property is null, empty, or doesn't exist
                                             there's no measurements between two stations.
 
-                    {
+                {
 
 
-                    "dir": "fs"             Optional enumeration - The direction of the shot's
+                  "dir": "fs",              Optional enumeration - The direction of the shot's
                                             measurement. There are two supported directions:
                                             "fs" and "bs", which are abbreviations for frontsight
                                             and backsight respectivly. A frontsight are measurements
@@ -324,26 +324,24 @@ job than parsing `.srv` files!
                                             Default value: "fs"
 
 
-                    "dist": 15.3            optional distance - the distance between two stations.
+                  "dist": 15.3,             optional distance - the distance between two stations.
                                             If omitted, means the data is missing
                                             Default unit: "distUnit"
 
-                    "azm": 204.5            Optional angle - the azimuth
+                  "azm": 204.5,             Optional angle - the azimuth
                                             If omitted, means the data is missing
                                             Default frontsight unit: "fsAzmUnit", then "angleUnit"
                                             Default backsight unit: "bsAzmUnit", then "angleUnit"
 
-                    "inc": -5               Optional angle - the inclination
+                  "inc": -5,                Optional angle - the inclination
                                             If omitted, means the data is missing or using station
                                             depths (dive data has no inclination).
                                             Default frontsight unit: "fsIncUnit", then "angleUnit"
                                             Default backsight unit: "bsIncUnit", then "angleUnit"
 
-                    },
-
-                    { ... }                 Another measurement between from station to the to station
-
-               ]
+                },
+                { ... }                     Another measurement between from station to the to station
+              ]
             }, 
             ...
             {                               The survey must end with a station
@@ -357,28 +355,6 @@ job than parsing `.srv` files!
       ...
     },
     ...
-  }
-}
-```
-
-Example JavaScript interpreting logic:
-
-```javascript
-for (var i = 0; i < survey.length - 2; i += 2) {
-  var from = survey[i],
-      shot = survey[i + 1],
-      to   = survey[i + 2];
-
-  if (shot && (shot.dist || shot.dist === 0)) {
-    if (!from || !from.station) {
-      throw new Error("missing from station");
-    }
-    if (to && to.station) {
-      // handle as splay shot
-    }
-    else {
-      // handle as regular shot
-    }
   }
 }
 ```
