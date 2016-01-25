@@ -205,9 +205,7 @@ job than parsing `.srv` files!
                                             Enter null where a station should be to turn
                                             the surrounding shots into splay shots
 
-              "station": "A1",              Optional - the station name.  If omitted,
-                                            turns the surrounding shots into splay shots
-                                            (and all other fields here will be ignored)
+              "station": "A1",              Required - the station name
 
               "cave": "Mammoth Cave",       Optional - specifies this station is in
                                             a different cave, for connections.  Stations
@@ -245,14 +243,14 @@ job than parsing `.srv` files!
                                             the surrounding shots
                                             Default unit: "distUnit"
 
-              splays: [                     Optional - Array of splay shots from the station. Each
+              "splays": [                   Optional - Array of splay shots from the station. Each
                                             object in the array represents a splay shot from the
                                             station If this property is null, empty, or doesn't
                                             exist there's no splay shots from this station.
 
                 {
 
-                  "dir": "fs",             Optional enumeration - The direction of the splay's
+                  "dir": "fs",              Optional enumeration - The direction of the splay's
                                             measurement. There are two supported directions:
                                             "fs" and "bs", which are abbreviations for frontsight
                                             and backsight respectivly. A frontsight are measurements
@@ -274,7 +272,7 @@ job than parsing `.srv` files!
                                             Default frontsight unit: "fsAzmUnit", then "angleUnit"
                                             Default backsight unit: "bsAzmUnit", then "angleUnit"
 
-                  "inc": -5,               Optional angle - the inclination of the splay
+                  "inc": -5,                Optional angle - the inclination of the splay
                                             If omitted, means the data is missing or using station
                                             depths (dive data has no inclination).
                                             Default frontsight unit: "fsIncUnit", then "angleUnit"
