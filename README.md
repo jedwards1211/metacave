@@ -374,23 +374,23 @@ incomplete shots and stations when computing loop closure or rendering the cave.
 ### Individual unit overrides
 
 Anywhere (_anywhere_!) you put a quantity with default units, you can instead override the default unit
-by entering an array like this:
+by typing it after the number, with whitespace between the units and numbers.  Examples:
 
 ```
-  "dist": ["4", "m"]                        distance is 4 meters even if "distUnit": "ft"
+  "dist": "4 m"                             distance is 4 meters even if "distUnit": "ft"
 
-  "dist": ["5", "ft", "7", "in"]            distance is 5 feet 7 inches
+  "dist": "5 ft 7 in"                       distance is 5 feet 7 inches
 
-  "dist": ["4", "in", "6", "ft", "2", "m"]  distance is 4 inches + 6 feet + 2 meters
+  "dist": "4 in 6 ft 2 m"                   distance is 4 inches + 6 feet + 2 meters
                                             this is absurd, but programs will be simpler
                                             if they don't have to worry about weird order
                                             or combined unit systems
 
-  "azmFsCorrection": ["2", "grad"]          frontsight azimuth correction is 2 gradians
+  "azmFsCorrection": "2 grad"               frontsight azimuth correction is 2 gradians
 
-  "lat": ["23", "deg", "26, "min", "21", "sec"] 23° 26′ 21″ (the Tropic of Cancer)
+  "lat": "23 deg 26 min 21 sec"             23° 26′ 21″ (the Tropic of Cancer)
 
-  "lrud": ["4", "5", "1", ["5", "in"]]      left, right, and up are in default units,
+  "lrud": ["4", "5", "1", "5 in"]           left, right, and up are in default units,
                                             down is 5 inches
 ```
 
