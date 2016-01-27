@@ -90,17 +90,17 @@ job than parsing `.srv` files!
                                             "lat"/"long" pair must be defined using the WGS84
                                             projection, specifically EPSG:4326.
 
-              "lat": 34.2342,               Required angle - latitude
+              "lat": "34.2342",             Required angle - latitude
                                             positive: north of equator
                                             negative: south of equator
                                             units: decimal degrees
 
-              "long": -56.2313,             Optional angle - longitude
+              "long": "-56.2313",           Optional angle - longitude
                                             positive: east of prime meridian
                                             negative: west of prime meridian
                                             units: decimal degrees
   
-              "elev": 345,                  Required distance - elevation
+              "elev": "345",                Required distance - elevation
                                             positive: above sea level
                                             negative: below sea level
                                             Default unit: "distUnit"
@@ -129,13 +129,13 @@ job than parsing `.srv` files!
           
           "surveyors": {                    Optional - members of the survey team
             "Dan Crowl": {
-              roles:"sketch"
+              roles: "sketch"
             },
             "Chip Hopper": {
-              roles:"frontsights"
+              roles: "frontsights"
             },
             "Keith Ortiz": {
-              roles:"backsights"
+              roles: "backsights"
             },
             "Peter Quick": {
               roles: [                      You can specify multiple roles in an array or scalar
@@ -162,7 +162,7 @@ job than parsing `.srv` files!
           "incBacksightsCorrected": false,  Required - true if inclinations backsights are corrected,
                                             false if not
 
-          "declination": 0.0,               Optional - the angle (in degrees) between
+          "declination": "0.0",             Optional - the angle (in degrees) between
                                             magnetic north and and true north
           
           "azmFsUnit": "deg",               Optional - overrides default unit for
@@ -179,23 +179,23 @@ job than parsing `.srv` files!
           "incBsUnit": "mil",               Optional - overrides default unit for
                                             backsight inclinations
           
-          "distCorrection": 1.5,            Optional distance - correction added to the
+          "distCorrection": "1.5",          Optional distance - correction added to the
                                             distances.  Doesn't apply to LRUD/NSEW
                                             Default unit: "distUnit"
           
-          "azmFsCorrection": 1,             Optional angle - correction added to the
+          "azmFsCorrection": "1",           Optional angle - correction added to the
                                             frontsight azimuths
                                             Default unit: "azmFsUnit", then "angleUnit"
 
-          "azmBsCorrection": 2,             Optional angle - correction added to the
+          "azmBsCorrection": "2",           Optional angle - correction added to the
                                             backsight azimuths
                                             Default unit: "azmBsUnit", then "angleUnit"
 
-          "incFsCorrection": 0,             Optional angle - correction added to the
+          "incFsCorrection": "0",           Optional angle - correction added to the
                                             frontsight inclinations
                                             Default unit: "incFsUnit", then "angleUnit"
           
-          "incBsCorrection": 0,             Optional angle - correction added to the
+          "incBsCorrection": "0",           Optional angle - correction added to the
                                             backsight inclinations
                                             Default unit: "incFsUnit", then "angleUnit"
           "survey": [
@@ -218,19 +218,19 @@ job than parsing `.srv` files!
               "isAboveGround": true,        Optional - true if the station is above 
                                             ground, false (or omitted) if not
 
-              "depth": 4.25,                Optional distance - depth underwater for dive 
+              "depth": "4.25",              Optional distance - depth underwater for dive 
                                             surveys (must be positive)
                                             If two adjacent stations have depths,
                                             inclinations can be omitted from the shot
                                             connecting them
                                             Default unit: "distUnit"
               
-              "lrud": [5, 4, 0, 2],         Optional distances - the LRUDs at this 
+              "lrud": ["5", "4", "0", "2"], Optional distances - the LRUDs at this 
                                             station.  They will also be associated with
                                             the surrounding shots
                                             Default unit: "distUnit"
               
-              "lrudAzm": 3,                 Optional angle - the azimuth that is forward
+              "lrudAzm": "3",               Optional angle - the azimuth that is forward
                                             relative to the LRUDs
                                             If omitted, the default is bisecting the
                                             previous and next shot azimuths
@@ -238,7 +238,7 @@ job than parsing `.srv` files!
                                             perpendicular to shot)
                                             Default unit: "angleUnit"
 
-              "nsew": [3, 2, 4, 6],         Optional distances - the NSEWs at this
+              "nsew": ["3", "2", "4", "6"], Optional distances - the NSEWs at this
                                             station. They will also be associated with
                                             the surrounding shots
                                             Default unit: "distUnit"
@@ -260,25 +260,25 @@ job than parsing `.srv` files!
                                             Default value: "fs"
 
 
-                  "dist": 15.3,             optional distance - the distance between the current
+                  "dist": "15.3",           optional distance - the distance between the current
                                             station and the splay station.
                                             If omitted, means the data is missing. This splay
                                             shot distance is ignored from the total surveyed
                                             distance.
                                             Default unit: "distUnit"
 
-                  "azm": 204.5,             Optional angle - the azimuth of the splay shot
+                  "azm": "204.5",           Optional angle - the azimuth of the splay shot
                                             If omitted, means the data is missing
                                             Default frontsight unit: "fsAzmUnit", then "angleUnit"
                                             Default backsight unit: "bsAzmUnit", then "angleUnit"
 
-                  "inc": -5,                Optional angle - the inclination of the splay
+                  "inc": "-5",              Optional angle - the inclination of the splay
                                             If omitted, means the data is missing or using station
                                             depths (dive data has no inclination).
                                             Default frontsight unit: "fsIncUnit", then "angleUnit"
                                             Default backsight unit: "bsIncUnit", then "angleUnit"
 
-                  "splayDepth": 4.25,       Optional distance - depth underwater for dive at the
+                  "splayDepth": "4.25",     Optional distance - depth underwater for dive at the
                                             splay station (must be positive)
                                             If current station has "depth" property and this
                                             property exist inclinations can be omitted from the
@@ -322,16 +322,16 @@ job than parsing `.srv` files!
                                             Default value: "fs"
 
 
-                  "dist": 15.3,             optional distance - the distance between two stations.
+                  "dist": "15.3",           optional distance - the distance between two stations.
                                             If omitted, means the data is missing
                                             Default unit: "distUnit"
 
-                  "azm": 204.5,             Optional angle - the azimuth
+                  "azm": "204.5",           Optional angle - the azimuth
                                             If omitted, means the data is missing
                                             Default frontsight unit: "fsAzmUnit", then "angleUnit"
                                             Default backsight unit: "bsAzmUnit", then "angleUnit"
 
-                  "inc": -5,                Optional angle - the inclination
+                  "inc": "-5",              Optional angle - the inclination
                                             If omitted, means the data is missing or using station
                                             depths (dive data has no inclination).
                                             Default frontsight unit: "fsIncUnit", then "angleUnit"
@@ -343,7 +343,8 @@ job than parsing `.srv` files!
             }, 
             ...
             {                               The survey must end with a station
-              "station": "END"
+              "station": "END"              (it doesn't have to be called "END", this is just for
+                                            illustrative purposes)
             }
           ]
         }
@@ -357,55 +358,41 @@ job than parsing `.srv` files!
 }
 ```
 
+### Note on numbers
+
+All numeric data must be entered as strings so that no precision is lost when converting to and from
+metacave.
+
+### Note on "missing" data
+
+**The absence of an inclination doesn't mean the inclination is 0.**  Please don't fill in missing
+measurements with default values.
+For instance, if a distance measurement is missing, it means the user didn't enter it in some program,
+but the program didn't want to discard the other measurements that they had entered.  You should ignore
+incomplete shots and stations when computing loop closure or rendering the cave.
+
 ### Individual unit overrides
 
 Anywhere (_anywhere_!) you put a quantity with default units, you can instead override the default unit
 by entering an array like this:
 
 ```
-  "dist": [4, "m"]                          distance is 4 meters even if "distUnit": "ft"
+  "dist": ["4", "m"]                        distance is 4 meters even if "distUnit": "ft"
 
-  "dist": [5, "ft", 7, "in"]                distance is 5 feet 7 inches
+  "dist": ["5", "ft", "7", "in"]            distance is 5 feet 7 inches
 
-  "dist": [4, "in", 6, "ft", 2, "m"]        distance is 4 inches + 6 feet + 2 meters
+  "dist": ["4", "in", "6", "ft", "2", "m"]  distance is 4 inches + 6 feet + 2 meters
                                             this is absurd, but programs will be simpler
                                             if they don't have to worry about weird order
                                             or combined unit systems
 
-  "azmFsCorrection": [2, "grad"]            frontsight azimuth correction is 2 gradians
+  "azmFsCorrection": ["2", "grad"]          frontsight azimuth correction is 2 gradians
 
-  "lat":  [23, "deg", 26, "min", 21, "sec"] 23° 26′ 21″ (the Tropic of Cancer)
+  "lat": ["23", "deg", "26, "min", "21", "sec"] 23° 26′ 21″ (the Tropic of Cancer)
 
-  "lrud": [4, 5, 1, [5, "in"]]              left, right, and up are in default units,
+  "lrud": ["4", "5", "1", ["5", "in"]]      left, right, and up are in default units,
                                             down is 5 inches
 ```
-
-### Can I use [YAML](http://www.yaml.org/)?
-
-Great question!  Metacave would certainly look nicer to non-programmers if it were in YAML, right?
-
-Plus, associating metadata like passage and area names with arbitrary groups of stations can be done more efficiently using YAML references.
-
-**So feel free to make your program support YAML!**
-
-#### BUT
-
-* Please don't use any YAML features that can't be converted to JSON
-* Please for the love of god don't use it like this:
-```
-%YAML 1.2
----
-!!map {
-  ? !!str "sequence"
-  : !!seq [ !!str "one", !!str "two" ],
-  ? !!str "mapping"
-  : !!map {
-    ? !!str "sky" : !!str "blue",
-    ? !!str "sea" : !!str "green",
-  },
-}
-```
-The authors of YAML really got carried away, didn't they?
 
 ### Embedding Metadata
 
@@ -429,11 +416,11 @@ For example, in Fisher Ridge all trips are assigned a number, so we could note t
 ```
   "trips": [
     {
-      "number": 1,
+      "number": "1",
       ...
     },
     {
-      "number": 2,
+      "number": "2",
       ...
     },
     ...
@@ -446,16 +433,16 @@ Or say you wanted to note water depth at each station:
   "survey": [
     {
       "station": "W1",
-      "waterDepth": 2,
+      "waterDepth": "2",
       ...
     },
     {
-      "dist": 5,
+      "dist": "5",
       ...
     },
     {
-      "station": W2",
-      "waterDepth": 5,
+      "station": "W2"",
+      "waterDepth": "5",
       ...
     },
     ...
