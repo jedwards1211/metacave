@@ -24,6 +24,10 @@ job than parsing `.srv` files!
 ## Specification
 (go to [README.md source](README.md) to avoid horizontal scrolling)
 
+### Charset/Encoding
+
+Always use UTF-8.
+
 ### Distance Units
 
 ```
