@@ -12,7 +12,7 @@ Metacave is a [JSON](http://json.org/) cave survey data format.  That means it's
     and give it a nice structure
   * You can embed program-specific features in it, without ruining another
     program's ability to load the base survey data
-* Easy to store in MongoDB
+* Easy to store in MongoDB, RethinkDB, and probably other NoSQL databases
 
 Metacave will soon become the native format (with extensions) for 
 [Breakout](http://helloandy.xyz/breakout) and probably also [Cavewhere](https://github.com/Cavewhere/cavewhere).
@@ -22,7 +22,10 @@ finished, and will have import/export for Compass `.dat` files soon as well (a m
 job than parsing `.srv` files!
 
 ## Specification
-(go to [README.md source](README.md) to avoid horizontal scrolling)
+
+### Charset/Encoding
+
+Always use UTF-8.
 
 ### Distance Units
 
