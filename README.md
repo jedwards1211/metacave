@@ -22,7 +22,6 @@ finished, and will have import/export for Compass `.dat` files soon as well (a m
 job than parsing `.srv` files!
 
 ## Specification
-(go to [README.md source](README.md) to avoid horizontal scrolling)
 
 ### Charset/Encoding
 
