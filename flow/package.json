@@ -1,0 +1,18 @@
+{
+  "name": "metacave-flow",
+  "version": "1.0.0",
+  "description": "metacave flowtypes",
+  "main": "index.js",
+  "scripts": {
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedwards1211/metacave/flow"
+  },
+  "author": "Andy Edwards",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-bin": "^0.35.0"
+  }
+}
