@@ -45,7 +45,6 @@ Always use UTF-8.
 "min" : minutes  (1/60   degree)
 "sec" : seconds  (1/60   minute)
 "grad": gradians (1/400  circle)
-"mil" : mils     (1/6400 circle)
 ```
 
 ### Additional Inclination Unit
