@@ -156,7 +156,6 @@ Always use UTF-8.
                                             Supported units:
                                             "deg" : degrees
                                             "grad": gradians
-                                            "mil" : mils (1/6400 of a circle)
 
           "azmBacksightsCorrected": false,  Required - true if azimuth backsights are corrected,
                                             false if not
@@ -178,7 +177,7 @@ Always use UTF-8.
                                             Additional supported unit:
                                             "%": percent grade
           
-          "incBsUnit": "mil",               Optional - overrides default unit for
+          "incBsUnit": "deg",               Optional - overrides default unit for
                                             backsight inclinations
           
           "distCorrection": "1.5",          Optional distance - correction added to the
